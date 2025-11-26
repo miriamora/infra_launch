@@ -34,7 +34,9 @@ jobs:
                 pip install pytest
 
             - name: unit testing - python code
-              run: pytest
+              run: |
+                cp app.py test_app.py
+                pytest
 
             - name: set up AWS credentials
               uses: aws-actions/configure-aws-credentials@v4
