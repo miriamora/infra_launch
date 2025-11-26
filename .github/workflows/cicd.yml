@@ -90,6 +90,7 @@ jobs:
 
     deploy_to_dev_server: 
         runs-on: ubuntu-latest
+        needs: build_and_store_image
     
         steps:
 
@@ -113,6 +114,7 @@ jobs:
                 key: ${{ env.dev_test_server_private_key }}
                 port: 22
                 script: |
+                    docker pull ${{env.ecr_registry}}/${{env.image_name}}:${{ github.run_id }}
                     docker run -d --name portcicd_app -p 80:80 ${{env.ecr_registry}}/${{env.image_name}}:${{ github.run_id }} **adjust and open port to meet requirement**
 
             - name: display app information
