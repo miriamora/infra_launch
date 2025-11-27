@@ -126,7 +126,7 @@ jobs:
                 port: ${{env.SSH_PORT}}
                 script: |
                     docker rm -f $(docker ps -aq) || true
-                    docker rmi -f $(docker images -aq) || true
+                    docker rmi -f $(docker images -aq) || echo ""  #same as using true above
                     
 
             - name: run latest image # can merge with previous step
