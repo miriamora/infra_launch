@@ -43,4 +43,4 @@ jobs:
           port: ${{env.SSH_PORT}}
           script: |
             docker rm -f resume
-            docker run -d --name resume -p 8080:80 ${{secrets.REGISTRY_USERNAME}}/portfolio:${{github.run_number}}
+            docker run -d --name resume -p 8082:80 ${{secrets.REGISTRY_USERNAME}}/portfolio:${{github.run_number}}
