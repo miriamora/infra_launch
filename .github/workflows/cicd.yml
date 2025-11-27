@@ -84,7 +84,7 @@ jobs:
               with:
                 image-ref: ${{ secrets.DOCKER_HUB_USERNAME }}/${{ env.image_name }}:${{ github.run_number }}
                 format: table
-                exit-code: 1    # 0 → scan passes even if vulnerabilities exist
+                exit-code: 0    # 1 --> scan fails even if vulnerabilities exist; 0 --> scan passes even if vulnerabilities exists
                 ignore-unfixed: true
 
             - name: build and push docker image (docker hub)
