@@ -2,7 +2,7 @@ __pycache__/
 venv/
 
 #for test_server testing :)
-dev_test_server.tf
-awskeypair-lightsail.pem
+*.tf
+*.pem
 .terraform
 docker.sh
